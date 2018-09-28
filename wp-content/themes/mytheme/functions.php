@@ -45,7 +45,8 @@ function mytheme_setup(){
 add_action('init','mytheme_setup');
 
  /*===============================================
-Add sidebar to mytheme
+Add sidebar to mytheme, sidebar content has to be
+filled by wp-admin in the widget interface of the WP web tool.
 =================================================*/
 //Hook to register the sidebar
 function mytheme_widget_setup(){
