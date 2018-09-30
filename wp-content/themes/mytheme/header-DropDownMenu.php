@@ -28,21 +28,27 @@
 
         <!-- List includes the home page button and the dropdown menu button -->
         <ul class="navbar-nav">
+
           <li class="nav-item active"><a class="nav-link"href="home">Home</a></li>
-          <li class="nav-item active"><a class="nav-link"href="blogs">Blogs</a></li>
-          <li class="nav-item active"><a class="nav-link"href="about-us">About us</a></li>
-          <li class="nav-item active"><a class="nav-link"href="contact">Contact</a></li>
+          
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Nav menu<span class="caret"></span></a>
+          
+            <!-- List of the dropdown menu -->
+            <ul class="dropdown-menu">
+              <li><a href="about-us">About us</a></li>
+              <li><a href="blogs">Blogs</a></li>
+              <li><a href="contact">Contact</a></li>
+            </ul>
+
+          </li>
+
         </ul>
 
       </div>  
 
     </nav>
     <!-- The header image of the whole theme, set wp-login.php->Appearance->Header -->
-    <!-- Display original size -->
-    <!--
-    <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" /> -->
-
-    <!-- Display fixed 200x200 size -->
-    <img src="<?php header_image(); ?>" height="200" width="200" alt="" />  
-
+    <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
  
