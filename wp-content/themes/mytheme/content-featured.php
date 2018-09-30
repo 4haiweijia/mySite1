@@ -6,5 +6,5 @@
 
   <?php the_title(sprintf('<h1 class="entry-title"> <a href="%s">',esc_url(get_permalink()),'</a></h1>')) ?>
   
-  <h4> <?php the_category(); ?> </h4>
+  <h4> <?php the_category(' '); ?> </h4> <!--  Don't show the bullet next to the category-->
 </article>

@@ -1,4 +1,4 @@
-<?php /* Template name: Templ no title */
+<?php /* Template name: my_page_template_notitle */
 get_header(); ?>
 <h1>This is page-notitle.php</h1>
 
