@@ -29,13 +29,65 @@
             <?php edit_post_link('Owner edit link'); ?></small>
           </div>
 
+          <?php 
+
+          // If the post has a gallery, get all the img urls
+          if( $gallery = get_post_gallery(get_the_ID(), false)): //$galleryImgURLs['sr'] element is the array of img urls
+            $imgURLs = $gallery['src'];
+            $nImgs = count($imgURLs);  
+            ?>
+            
+            <!-- Show imgs in a bootstrap carousel -->  
+            <div id="galleryImgs" class="carousel slide" data-ride="carousel">
+
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <?php for($imgCntr = 0; $imgCntr < $nImgs; $imgCntr++ )
+                  {
+                    $isActive = ($imgCntr == 0? 'class="active"':''); //1st indicator dot is initially active 
+                    ?>
+                    <li data-target="#galleryImgs" data-slide-to="<?php echo $imgCntr; ?>" <?php echo $isActive; ?>></li>
+                  <?php } ?>
+                </ol>
+            
+                <!-- The slideshow -->
+                <div class="carousel-inner">
+                  <?php foreach ($imgURLs as $imgURL) {  
+                    $isActive = ($imgURL == $imgURLs[0]? 'carousel-item active':'carousel-item'); //1st img is active 
+                    ?>
+
+                    <div class= "<?php echo $isActive; ?>" >
+                      <img "d-block w-100" height = "300" width = "600" src= "<?php echo $imgURL; ?>" alt="" />
+                    </div>
+                  <?php } ?>
+                </div>
+              
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#galleryImgs" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#galleryImgs" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+                </a>
+              
+              </div>
+
+          <?php endif; ?>
+
           <!-- Show post thumbnail -->			
           <?php if( has_post_thumbnail() ): ?>
               <div class='float-right'><?php the_post_thumbnail('thumbnail'); ?></div>
           <?php endif; ?>
 
           <!-- Show post content -->
-          <?php  the_content(); ?>
+          <?php 
+          //the_content(); //Default show all content of post.
+
+          $content2 = strip_shortcodes(get_the_content()); //remove the gallery code
+          echo $content2; //show only unformatted text.
+          ?>
 
           <hr>
 
