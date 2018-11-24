@@ -26,7 +26,7 @@
         <a class="navbar-brand" href="home">mySite1</a>
         </div>                    
 
-        <!-- List includes the home page button and the dropdown menu button -->
+        <!-- List includes buttons for the pages -->
         <ul class="navbar-nav">
           <li class="nav-item active"><a class="nav-link"href="home">Home</a></li>
           <li class="nav-item active"><a class="nav-link"href="blogs">Blogs</a></li>
