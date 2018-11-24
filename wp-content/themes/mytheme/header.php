@@ -37,6 +37,12 @@
       </div>  
 
     </nav>
+    
+    <!--Display a search form here -->
+    <div class="search-form-container">
+      <?php get_search_form(); ?>
+    </div>
+
     <!-- The header image of the whole theme, set wp-login.php->Appearance->Header -->
     <!-- Display original size -->
     <!--
